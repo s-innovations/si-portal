@@ -1,0 +1,25 @@
+﻿<div class="si-notificationspane si-contextpane-content">
+    <div class="si-notificationspane-header">
+        <h2 id="notifications-title-id" class="si-notificationspane-title">Notifications</h2>
+        <div class="si-notificationspane-dismisscontainer" data-bind="style : { visibility : hasNotifications ? '' : 'hidden' }" style="visibility: hidden;">
+            <span aria-hidden="true" id="notifications-dismisstitle-id" class="si-notificationspane-dismiss">Dismiss:</span>
+            <ul class="si-notificationspane-dismisslist" data-bind="foreach: dismissOptions">
+                <li class="si-notificationspane-dismissitem">
+                    <a href="#" data-bind="text: name, css: { 'si-notificationspane-dismissitemdisabled': !isEnabled }" aria-describedby="notifications-dismisstitle-id" role="button" class="si-notificationspane-dismissitemdisabled">Informational</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="si-notificationspane-top">
+        <!-- ko ifnot: hasNotifications -->
+        <div class="nodata-content" title="No new notifications from this session">No new notifications from this session</div>
+        <!-- /ko -->
+        <!-- ko if: hasNotifications -->
+
+        <div>
+            Save data
+
+        </div>
+        <!-- /ko -->
+    </div>
+</div>

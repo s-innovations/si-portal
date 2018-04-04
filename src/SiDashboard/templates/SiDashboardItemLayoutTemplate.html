@@ -1,0 +1,24 @@
+﻿
+<section class="si-tile si-rightClick si-flowlayout-element si-drag-disableTouchAction ui-draggable ui-draggable-handle"
+         data-bind="style:style, css: classes, event: { mouseover: onMouseOver, mouseout: onMouseOut }, setCoords : 'coords', draggabilly:dragHandler">
+    <!-- koLayout: tileActionBar -->
+
+    <div class="si-tile-progress-transparent si-loading5dots-container" data-bind="visible:loading" >
+        <div class="si-portal-background"></div>
+        <div class="si-portal-background"></div>
+        <div class="si-portal-background"></div>
+        <div class="si-portal-background"></div>
+        <div class="si-portal-background"></div>
+    </div>
+
+
+    <div  class="si-part" data-bind="click:contentClicked, style:{'opacity' : loading ? 0:1}">
+        <!-- koLayout: content -->
+    </div>
+
+    <!-- ko if : resizable -->
+    <div class="si-flowlayout-resizehandle" data-bind="event:{mousedown:onResizeStart,mouseup:onResizeEnd}">
+        <div></div>
+    </div>
+    <!-- /ko -->
+</section>

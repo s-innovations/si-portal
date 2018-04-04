@@ -1,0 +1,44 @@
+﻿
+
+.si-deck-item:last-child {
+    box-shadow: 5px 0 0 rgba(108,115,122,.15);
+}
+
+.si-deck-item {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &.si-deck-item-maximized {
+        width: 100%;
+    }
+
+    .si-deck-item-content-container {
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 auto;
+        min-height: 0;
+        
+
+        &.stacked {
+            flex-direction: column;
+        }
+
+        .si-deck-item-content:first-child:not(:last-child) {
+            -webkit-flex: 0 0 auto;
+            flex: 0 0 auto;
+        }
+
+        .si-deck-item-content {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            flex: 1;
+            min-width: 0;
+        }
+    }
+}

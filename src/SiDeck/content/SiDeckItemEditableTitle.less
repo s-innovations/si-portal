@@ -1,0 +1,59 @@
+﻿
+.editable-title-container {
+    display: inline-block;
+    max-width: 660px;
+    min-width: 100px;
+    position: relative;
+    padding-top: 4px;
+
+    .editable-title-textbox {
+        display: inline-block;
+    }
+
+    .editable-title-input-container {
+        max-width: 98%;
+        //   border-bottom: 1px solid transparent !important;
+        input {
+            background-color: transparent;
+            color: white;
+            font-size: 18px;
+            line-height: 22px;
+            /*height: 30px;*/
+            box-sizing: content-box;
+            margin-bottom: 4px;
+        }
+    }
+
+    .editable-title-input.validTitle:focus {
+        border-bottom: 2px solid #0078d7;
+        outline:0;
+    }
+
+    .editable-title-input.validTitle:hover, .editable-title-input.validTitle:focus {
+        border-bottom: 2px solid #c8c8c8;
+        /*padding-top: 2px;*/
+        padding-left: 0;
+        margin-bottom: 2px;
+    }
+
+    .editable-title-input.validTitle {
+        border-style: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &:hover .editable-icon-container {
+        visibility: visible;
+    }
+
+    .editable-icon-container {
+        display: inline-block;
+        position: absolute;
+        visibility: hidden;
+        top: 2px;
+
+        .rd-edit-icon-button {
+            color: #0078d7;
+        }
+    }
+}

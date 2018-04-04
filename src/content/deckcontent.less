@@ -1,0 +1,184 @@
+﻿.stream-deck-content-container {
+    background-color: #f8f8f8;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.dropdown-menu {
+    position: absolute;
+    border: 1px solid #767676;
+    display: none;
+    z-index: 1;
+    background: white;
+    width: 100%;
+
+    .list-view {
+        display: flex;
+        flex-direction: column;
+
+        .list-view-item {
+            height: 32px;
+
+            &:hover {
+                background-color: aliceblue;
+            }
+        }
+    }
+}
+
+
+
+.input-field-component {
+    margin: 5px 0 0 0;
+    position: relative;
+
+    .input-field-label {
+        font-size: 14px;
+        font-weight: 400;
+        box-sizing: border-box;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        color: #333333;
+        box-sizing: border-box;
+        display: block;
+        padding: 5px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+
+    input, textarea, select {
+        background-color: #fff;
+    }
+
+    .combo {
+        height: 32px;
+    }
+
+
+    .textfield.combo {
+        &.drop > .drop {
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+        }
+
+        .fieldgroup {
+            padding-left: 0;
+            border: 1px solid #c8c8c8;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: block;
+            padding-left: 2px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        &.drop {
+            .dropdown-menu {
+                display: block;
+                top: 32px;
+            }
+        }
+
+
+
+        & > .drop {
+            width: 20px;
+            position: absolute;
+            cursor: pointer;
+            overflow: hidden;
+
+           
+        }
+
+
+        .fieldgroup > input[type=text] {
+            width: ~"calc(100% - 20px)";
+            height: 100%;
+            border: none;
+            outline: none;
+        }
+    }
+
+    .input-control-with-editor-extension {
+        display: flex;
+
+        .string-input-component-value {
+            flex-grow: 1;
+        }
+    }
+
+    .textfield {
+        box-sizing: border-box;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 8px;
+        position: relative;
+
+
+        .fieldgroup {
+            min-height: 32px;
+            height: auto;
+            display: flex;
+            border: 1px solid #c8c8c8;
+            background: #ffffff;
+            height: 32px;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            position: relative;
+
+            &:hover {
+                border-color: #767676;
+            }
+        }
+
+        textarea.textfield-field {
+            padding-top: 6px;
+        }
+
+        .textfield-field {
+            line-height: 17px;
+            flex-grow: 1;
+            overflow: auto;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            border-radius: 0;
+            border: none;
+            color: #333333;
+            padding: 0px 12px 0 12px;
+            text-overflow: ellipsis;
+            outline: 0;
+        }
+    }
+
+    .unresizable {
+        resize: none;
+    }
+}
+
+
+.swagger {
+    width: 100%;
+    height: 100%;
+    overflow-y:hidden;
+ 
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}

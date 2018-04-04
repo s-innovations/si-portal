@@ -1,0 +1,35 @@
+﻿
+<div class="hex-grid-layout">
+    <div class="hex-grid">
+        <div class="hex-item" data-bind="click:createNewItem", style="grid-column: span 2">
+            <div class="hex-in">
+                <a class="hexLink" href="#">
+                    <div class="hex-layout">
+                        <div class="hex-item-create-icon si-fill-success">
+                            <svg viewBox="0 0 18 18" class="siportalfx-svg-placeholder" role="img" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false"> <g id="Isolation_Mode"> <polygon id="XMLID_319_" class="st0" points="8,18 10,18 10,10 18,10 18,8 10,8 10,0 8,0 8,8 0,8 0,10 8,10"></polygon> </g> </svg>
+                        </div>
+                        <div>ADD</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- ko foreach: {data:items, afterAdd:itemAdded} -->
+        <div class="hex-item" data-bind="style:{gridColumn:gridColumn}">
+            <div class="hex-in">
+                <a class="hexLink" href="#" data-bind="click:openHexagon">
+                    <div class="hex-text-wrapper"> 
+                        <span class="hex-text" data-bind="text:$data.title"></span>
+                    </div>
+                    <!--<img src="https://farm9.staticflickr.com/8461/8048823381_0fbc2d8efb.jpg" alt="">-->
+                    <h1>Title</h1>
+                  <p>some text</p>
+                </a>
+            </div>
+        </div>
+        <!-- /ko -->
+        
+       
+      
+    </div>
+</div>

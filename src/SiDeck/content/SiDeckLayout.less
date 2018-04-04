@@ -1,0 +1,28 @@
+﻿
+.si-deck-item-content-container {
+    background-color: #fff;
+}
+
+.si-stacklayout {
+    display: flex;
+
+    &.si-stacklayout-horizontal {
+        flex-direction: row;
+        height: 100%;
+
+        > .si-stacklayout-child {
+            height: 100%;
+        }
+    }
+
+    > .si-stacklayout-child {
+        margin-right: 0;
+    }
+}
+
+.si-stacklayout-child {
+    flex: 0 0 auto;
+}
+
+
+ 

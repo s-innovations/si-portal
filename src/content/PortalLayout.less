@@ -1,0 +1,322 @@
+﻿
+
+
+
+.si-theme-pink {
+    background-color: #e9e3de;
+
+    .siportalfx-overflowY:hover, &.si-scrollbar-transparent:hover, .si-scrollbar-default-hover:hover {
+        -ms-scrollbar-track-color: #e9e3de;
+        -ms-scrollbar-arrow-color: #e9e3de;
+        -ms-scrollbar-face-color: darken(#e9e3de,10%);
+    }
+
+    .siportalfx-overflowY, &.si-scrollbar-transparent, .si-scrollbar-transparent {
+        -ms-scrollbar-track-color: #e9e3de;
+        -ms-scrollbar-arrow-color: #e9e3de;
+        -ms-scrollbar-face-color: darken(#e9e3de,10%);
+    }
+
+    .si-portal-main {
+        background-color: #202428;
+    }
+
+    .si-portal-content {
+        background-color: #e9e3de;
+    }
+}
+
+.si-theme-blue {
+    background-color: #2e80ab;
+
+    .siportalfx-overflowY:hover, &.si-scrollbar-transparent:hover, .si-scrollbar-default-hover:hover {
+        -ms-scrollbar-track-color: #2e80ab;
+        -ms-scrollbar-arrow-color: #2e80ab;
+        -ms-scrollbar-face-color: #256689;
+    }
+
+    .siportalfx-overflowY, &.si-scrollbar-transparent, .si-scrollbar-transparent {
+        -ms-scrollbar-track-color: #2e80ab;
+        -ms-scrollbar-arrow-color: #2e80ab;
+        -ms-scrollbar-face-color: #256689;
+    }
+
+    .si-portal-main {
+        background-color: #202428;
+    }
+
+    .si-portal-content {
+        background-color: #2e80ab;
+    }
+
+  
+}
+
+.si-panorama {
+    position: relative;
+    -ms-scroll-chaining: none;
+
+    .si-startboard-target {
+        opacity: 1;
+        transition: opacity .125s ease;
+    }
+
+    .si-startboard-target, .si-deck-target {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        border-radius: 5px 0 0;
+    }
+
+  
+}
+
+.si-startboard {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+
+    & > .si-startboard-layout {
+        padding: 25px 25px;
+        overflow: auto;
+        -ms-flex: 1 1 auto;
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+    }
+
+    & > .si-startboard-layout .si-flowlayout-childcontainer {
+        /*padding-bottom: 95px;
+        padding-right: 95px;*/
+    }
+
+
+
+    .si-tile {
+        box-shadow: 0 2px 2px rgba(0,0,0,.25);
+    }
+}
+
+.si-flowlayout {
+    & > .si-flowlayout-childcontainer {
+        position: relative;
+        transition: height .25s linear,width .25s linear 0s;
+    }
+}
+
+.si-portal {
+    font-family: az_ea_font,wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    transition: background .25s ease;
+    display:flex;
+    flex-direction:column;
+
+    .si-portal-main {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: stretch;
+        /*height: ~"calc(100% - 40px)";*/
+        height:100%;
+        position:relative;
+    }
+
+    .si-portal-content {
+        -ms-flex: 1 1 auto;
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+        position: relative;
+        overflow-x: auto;
+        overflow-y: hidden;
+        transition: margin .2s ease;
+    }
+
+    .si-portal-explorer {
+        background: #202428;
+        width: 50px;
+    }
+
+    &.explorer-expanded {
+        .si-portal-explorer {
+            width: 240px;
+        }
+    }
+}
+
+
+
+.si-desktop-organize {
+    .si-flowlayout-childcontainer {
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaAQMAAAACZtNBAAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlMUAFg9Gm0AAAAiSURBVHhe7cehAQAACAJBm/tvxGYa6VD/2o2tqhBCyFmUB3slfJ2gO7yEAAAAAElFTkSuQmCC');
+    }
+}
+
+
+.si-mode-light {
+    .si-startboard-layout {
+        .si-tile {
+            background-color: #fff;
+            color: #2d3239;
+        }
+    }
+}
+
+
+.si-flowlayout {
+    & > .si-flowlayout-childcontainer {
+        & > .si-flowlayout-element {
+            position: absolute;
+            z-index: 100;
+        }
+    }
+}
+
+.si-tile {
+    height: 175px;
+    width: 175px;
+    position: relative;
+
+    :not(&.resizing) {
+        transition: height .125s linear .125s,width .125s linear 0s;
+    }
+
+    &.si-tilesize-tall {
+        height: 355px;
+        width: 175px;
+    }
+
+    &.si-tilesize-wide {
+        height: 175px;
+        width: 355px;
+    }
+
+    &.si-tilesize-herowide {
+        height: 355px;
+        width: 535px;
+    }
+
+    &.si-tilesize-normal {
+        height: 175px;
+        width: 175px;
+    }
+
+    &.is-pointer-down {
+        background: #09F;
+    }
+
+    &.is-dragging {
+        opacity: 0.7;
+    }
+
+
+    &.si-tile-selected, &.si-tile-selectedfromhover {
+        .si-tile-actionbar {
+            opacity: 1;
+        }
+    }
+
+    &.si-tilesize-mini, &si-tilesize-small, &.si-tilesize-tall, &.si-tilesize-wide, &.si-tilesize-normal, &.si-tilesize-large, &.si-tilesize-custom, &.si-tilesize-herotall, &.si-tile.si-tilesize-herowide, &.si-tilesize-hero {
+
+        .si-tile-actionbar {
+            cursor: move;
+        }
+    }
+
+
+    .si-tile-actionbar {
+        position: absolute;
+        top: -25px;
+        width: 100%;
+        opacity: 0;
+        transition: opacity .1s;
+    }
+}
+
+.si-tile.si-tile-selected .si-tile-actionbar, .si-tile.si-tile-selectedfromhover .si-tile-actionbar {
+    opacity: 1;
+}
+
+.si-drag-disableTouchAction {
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+.si-portal .si-tile-actionbar {
+    background-color: #fd6e7c;
+}
+
+.si-tile .si-tile .si-tile-actionbar {
+    z-index: 197;
+}
+
+.si-tile-actionbar {
+    height: 25px;
+}
+
+.si-tile-actionbar ul.si-tile-actionbar-actionlist {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+}
+
+.si-tile-actionbar ul.si-tile-actionbar-actionlist > li {
+    -ms-flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    height: 25px;
+    width: 25px;
+}
+
+.si-portal .si-tile-actionbar .si-tile-actionbar-action:hover, .si-portal .si-tile-actionbar .si-tile-actionbar-action.si-tile-actionbar-action-pressed {
+    background-color: #fd6e7c;
+}
+
+.si-tile-actionbar ul.si-tile-actionbar-actionlist > li .si-tile-actionbar-action {
+    box-sizing: border-box;
+    height: 25px;
+    width: 25px;
+    padding: 6px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+button {
+    color: #2d3239;
+}
+
+.si-portal .si-tile-actionbar .si-tile-actionbar-action svg {
+    fill: white;
+}
+
+
+
+a {
+    color: #0078d7;
+    text-decoration: none;
+}
+
+[type=button], [type=reset], [type=submit], button {
+    font-size: 12px;
+    background: 0 0;
+    color: inherit;
+}
+
+.si-mode-light .si-portal-text {
+    color: #252525;
+}
+

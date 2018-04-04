@@ -1,0 +1,203 @@
+﻿.si-contextpane.si-contextpane-loading .si-progress-dots, .si-contextpane.si-contextpane-visible {
+    display: block;
+}
+.si-mode-light .si-portal-bg-txt-br {
+    color: #252525;
+    border-color: #bbb;
+    background-color: #fff;
+}
+
+
+.si-contextpane {
+    display: none;
+    height: 100%;
+    position: relative;
+    z-index: 200;
+
+    .md-form-group {
+        /*padding: 20px 0 0 0;*/
+        margin:0;
+    }
+
+    .md-control-label:after{
+        /*bottom:25px;*/
+    }
+}
+ 
+.si-portal-contextpane-right {
+    position: absolute;
+    right: 0;
+    box-shadow: 0 5px 15px 2px rgba(0,0,0,.3);
+    max-width: ~"calc(100% - 225px)";
+}
+
+ 
+
+
+.si-contextpane-expand {
+    left: 0;
+    padding: 8px 7px 9px 20px;
+    width: 100%;
+}
+
+ 
+.si-contextpane-close, .si-contextpane-expand {
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+    transition: background .2s ease-out;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 0;
+}
+
+.si-mode-light .si-portal-svg {
+    fill: #252525;
+}
+
+.si-contextpane-expand svg {
+    height: 18px;
+    width: 18px;
+}
+
+
+.si-contextpane-close svg, .si-contextpane-expand svg {
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+
+.si-contextpane-close {
+    right: 0;
+}
+
+.si-contextpane .si-contextpane-content {
+    box-sizing: border-box;
+    height: 100%;
+    overflow: auto;
+}
+ 
+.si-notificationspane {
+    width: 395px;
+    height: 100%;
+    margin: 0 0 0 25px;
+    box-sizing: border-box;
+    font-size: 12px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.si-notificationspane-header {
+    border-bottom: 1px solid #758393;
+    padding-bottom: 10px;
+    margin-right: 25px;
+}
+
+.si-notificationspane-title {
+    font-family: az_ea_font,"Segoe UI",wf_segoe-ui_light,"Segoe UI Light","Segoe WP Light","Segoe WP",Tahoma,Arial,sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.si-notificationspane-dismisscontainer {
+    float: right;
+    margin-right: 15px;
+    margin-top: -10px;
+}
+
+.si-notificationspane-dismiss {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.si-notificationspane-dismisslist {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.si-notificationspane-dismissitem {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.si-notificationspane-dismissitemdisabled {
+    color: #6c737a !important;
+    pointer-events: none;
+}
+
+
+[data-bind*=siClick], [data-bind*=fxclick], [role=link], [role=button] {
+    cursor: pointer;
+}
+
+.si-notificationspane-top {
+    
+    overflow: auto;
+    width: 370px;
+    padding-right: 25px;
+    display:flex;
+    flex-direction:column;flex:1;
+}
+
+.si-notificationspane-top .nodata-content {
+    margin: 0 40px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.si-contextpane-close:hover {
+    background: #ba141a;
+    color: #fff;
+}
+
+.si-mode-light .si-portal-background {
+    background-color: #fff;
+}
+
+.si-mode-light .si-portal-svg {
+    fill: #252525;
+}
+
+.si-trim-svg {
+    fill: #fff;
+}
+
+.si-notificationspane-dismissitemdisabled {
+    color: #6c737a !important;
+    pointer-events: none;
+}
+
+
+
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement {
+    background-color: white;
+    height: 40px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+    border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+}

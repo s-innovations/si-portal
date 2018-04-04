@@ -1,0 +1,209 @@
+﻿
+
+a {
+    transition: color .2s ease-in-out,border-bottom-color .2s ease-in-out;
+    color: #b9babd;
+    text-decoration: none;
+    border-bottom: dotted 1px #696a6d;
+}
+
+.si-portal {
+    font-family: az_ea_font,wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    transition: background .25s ease;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.si-portal .si-portal-main {
+    
+    display: flex;
+    
+    flex-flow: row nowrap;
+ 
+    align-items: stretch;
+    height: 100%;
+}
+
+.si-sidebar {
+    z-index: 201;
+    position: relative;
+    height: 100%;
+    font-size: 13px;
+    background: rgba(51,52,60,0.9825);
+    width: 5em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    a:before {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-transform: none !important;
+    }
+
+    a {
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+        position: relative;
+        color: #696a6d;
+        padding: 0.5em 0;
+        border-bottom: 0;
+        outline: 0;
+    }
+
+
+
+
+    a > span {
+        display: block;
+        text-indent: 0;
+        font-size: 0.7em;
+        position: relative;
+        top: -0.275em;
+    }
+
+    a.earthml span {
+        display: none;
+    }
+    a.earthml{
+        padding:3px;
+    }
+
+    a.earthml:before {
+        content: '';
+        background-image: url('../../content/fitlogo.png');
+        background-size: 60%, auto;
+        background-position: center, center;
+        background-repeat: no-repeat, no-repeat;
+        background-size:contain;
+        /*border-radius: 100%;*/
+        width: 100%;
+        height: 65px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    a.active {
+        background-color: rgba(250,247,255,0.035);
+        color: #b9babd;
+    }
+}
+
+
+
+.si-portal .si-portal-content {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    transition: margin .2s ease;
+}
+
+.si-portal-content .si-deck-target, .si-portal-content .si-startboard-target {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    border-radius: 5px 0 0;
+}
+
+#header {
+    position: relative;
+    margin: 0;
+    padding: 0 3em;
+}
+#header > .inner {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    height: 9em;
+}
+#header > .inner h1 {
+    cursor: default;
+    margin: 0;
+}
+
+#header > .inner .user-info {
+    text-align: right;
+}
+
+#header > .inner .user-info a {
+    -moz-transition: background-color .2s ease-in-out;
+    -webkit-transition: background-color .2s ease-in-out;
+    -ms-transition: background-color .2s ease-in-out;
+    transition: background-color .2s ease-in-out;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: block;
+    border-bottom: 0;
+    border-radius: 3em;
+    cursor: pointer;
+    margin: 0 -0.75em 0 0;
+    padding: 0.75em 0.75em 0.75em 1.25em;
+    outline: 0;
+}
+#header > .inner .user-info a strong {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1em;
+}
+#header > .inner .user-info a img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 2.25em;
+    height: 2.25em;
+    border-radius: 2.25em;
+}
+
+body, #wrapper {
+    background: #2c2d34;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 1.75em;
+}
+
+.stream-portal {
+    border-top: 1px solid #525252;
+    padding: 0 3em;
+}
+

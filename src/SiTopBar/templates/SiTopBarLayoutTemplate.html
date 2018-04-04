@@ -1,0 +1,138 @@
+﻿
+<div class="si-topbar " role="presentation">
+    <div class="si-topbar-exit-customize si-hide-in-normal">
+        <div class="si-topbar-exit-customize-message">Your dashboard has changed, save?</div>
+        <button class="si-topbar-exit-customize-button si-button si-primary" data-bind="click: complete">Save changes</button>
+    </div>
+    <div class="si-topbar-content si-hide-in-organize">
+        <div class="si-topbar-internal si-bg-warning">Preview</div>
+        <a href="#" id="bannerlabel" class="si-topbar-home si-trim-text-primary si-trim-hover" title="Go to dashboard">EarthML Pimetr</a>
+        <div class="si-topbar-placeholder"></div>
+
+        <div class="si-topbar-search si-search" data-bind="stopBindings: true" role="presentation" style="display:none">
+            <div class="si-search" role="search" data-bind="css: { 'si-search-expanded': isExpanded }" aria-label="Search resources (global)">
+                <div class="si-box-wrapper" data-bind="css: { 'si-searching': showSearching }">
+                    <div class="si-icon siportalfx-svg-flip-horizontal" title="Search resources (global)">
+                        <svg height="100%" width="100%" aria-hidden="true" role="presentation" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#siymbol0-00d"></use></svg>
+                    </div>
+                    <div class="si-searchbox si-topbar-input fxc-base azc-control azc-editableControl azc-validatableControl azc-inputbox azc-textBox" data-control="true" data-editable="true" data-canfocus="true">
+                        <div class="azc-inputbox-wrapper azc-textBox-wrapper" tabindex="-1">
+                            <input class="azc-input azc-formControl azc-validation-border" type="text" aria-multiline="false" name="__azc-textBox0" placeholder="Search resources, services and docs" spellcheck="false" tabindex="0">
+                        </div>
+                    </div>
+                    <div class="si-indicator">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div role="presentation" aria-hidden="true" class="si-cross">×</div>
+                </div>
+                <a href="#" class="si-search-icon si-topbar-button si-trim-svg si-trim-hover" role="button" title="Search resources (global)" aria-label="Search resources (global)">
+                    <div class="siportalfx-svg-flip-horizontal">
+                        <svg height="100%" width="100%" aria-hidden="true" role="presentation" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#siymbol0-00d"></use></svg>
+                    </div>
+                </a>
+                <div class="si-menu si-popup si-portal-bg-txt-br si-dropmenu-content" data-bind="visible: showMenu" title="" style="display: none;"></div>
+            </div>
+        </div>
+
+
+        <div class="si-topbar-notifications" data-bind="css:{'si-portal-background':isNotificationsOpen,'si-trim-hover':!isNotificationsOpen}">
+            <a href="#" class="si-trim-svg si-topbar-button" data-bind="css:{'si-portal-svg' : isNotificationsOpen}, click:toggleNotifications" role="button" title="Notifications" aria-label="Notifications">
+                <svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 88 68" xml:space="preserve">
+                <g transform="translate(0,-952.36218)">
+                <path d="M1.8,952.4c-1,0.1-1.8,1-1.8,2v54c0,1.1,0.9,2,2,2h29.3l11.4,9.5c0.7,0.6,1.8,0.6,2.6,0l11.4-9.5H86c1.1,0,2-0.9,2-2v-54
+		                    c0-1.1-0.9-2-2-2H2C1.9,952.4,1.9,952.4,1.8,952.4z M4,956.4h80v50H56c-0.5,0-0.9,0.2-1.3,0.5l-10.7,8.9l-10.7-8.9
+		                    c-0.4-0.3-0.8-0.5-1.3-0.5H4V956.4z M11.8,967.4c-1.1,0.1-2,1-1.9,2.1s1,2,2.1,1.9h64c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2
+		                    c0,0,0,0-0.1,0H12C11.9,967.4,11.9,967.4,11.8,967.4z M11.8,979.4c-1.1,0.1-2,1-1.9,2.1s1,2,2.1,1.9h64c1.1,0,2-0.9,2-2
+		                    c0-1.1-0.9-2-2-2c0,0,0,0-0.1,0H12C11.9,979.4,11.9,979.4,11.8,979.4z M11.8,991.4c-1.1,0.1-2,1-1.9,2.1s1,2,2.1,1.9h34
+		                    c1.1,0,2-0.9,2-2s-0.9-2-2-2c0,0,0,0-0.1,0H12C11.9,991.4,11.9,991.4,11.8,991.4z" />
+
+
+
+                    </g>
+                    </svg>
+            </a>
+            <div class="si-notificationspane-progressbar si-display-none">
+                <div></div>
+            </div>
+        </div>
+
+
+
+        <div class="si-topbar-avatarmenu si-avatarmenu" data-bind="stopBindings: true, with:avatarMenu">
+            <div class="si-dropmenu" role="presentation">
+                <button class="si-dropmenu-button si-menu-account si-popup-button" data-bind="click:toggleAvatarMenu" aria-haspopup="true" aria-expanded="false" aria-controls="5fa5172a-32a6-4e49-907a-a186dcd41003" aria-label="Account menu Currently signed in as AscendXYZ, under {1} tenant" title="Name: Poul Kjeldager Sørensen
+Email: pks@ascend.xyz
+Directory: AscendXYZ (0840c760-6f7b-4556-b337-8c090e2d458d)
+Domain: ascend.xyz">
+                    <div class="si-avatarmenu-header si-trim-hover" data-bind="attr: { title: tooltip }" title="Name: Poul Kjeldager Sørensen
+Email: pks@ascend.xyz
+Directory: AscendXYZ (0840c760-6f7b-4556-b337-8c090e2d458d)
+Domain: ascend.xyz">
+                        <div class="si-avatarmenu-tenant-container">
+                            <div class="si-avatarmenu-username" data-bind="text: displayName">pks@ascend.xyz</div>
+                            <div class="si-avatarmenu-tenant" data-bind="text: currentTenantDisplayName">AscendXYZ</div>
+                        </div>
+                        <img class="si-avatarmenu-tenant-image"  alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAM1BMVEVndYWzuL2Nl6Gbo6yqsLZxfYx/ipd1gpCgp69seYmSm6WlrLN6hpOvtLqEjpqXn6iIkp4fvOWIAAAAiklEQVR4XtXS2woDMQgE0BnNbe/7/19bqKxQMrTPPa8adIL4D7uT3E5oJ4MvECofK4SLqWJ2MBkmCxNdjk4DMya528akojc+Cr4m2yGt8VZVu10V9TZrwD7ss6UVkscdCd9Dtj5vVVYzZzi6yKS+bqGUZ0Cp5x1IDcEoGYJTcoRBaSAUSgWBGn+XX0A2A4V4OvWYAAAAAElFTkSuQmCC">
+                    </div>
+                </button>
+                <div class="si-dropmenu-content si-text-link si-popup si-portal-bg-txt-br si-dropmenu-defaultWidth si-dropmenu-left" data-bind="css:{'si-dropmenu-hidden':!isAvatarOpen, 'si-dropmenu-is-open':isAvatarOpen}" role="menu" id="5fa5172a-32a6-4e49-907a-a186dcd41003" aria-hidden="true">
+                    <div class="si-avatarmenu-dropdown">
+                        <ul class="si-avatarmenu-list-system" role="presentation">
+                            <li class="si-portal-hover" role="presentation">
+                                <a href="#" data-bind="click:signOut" class="si-avatarmenu-signout" role="menuitem" title="Sign out" tabindex="0">
+                                    <div class="si-dropmenu-list-content si-portal-text" >Sign out</div>
+                                    <div class="si-dropmenu-image si-fill-error">
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="si-avatarmenu-scrollviewer">
+                            <div class="si-avatarmenu-list-system">
+                                <ul role="presentation">
+
+                                    <!-- ko if: isTrial -->
+                                    <li class="si-portal-hover" role="presentation" style="">
+                                        <a tabindex="-1" data-bind="click:signUp" class="si-avatarmenu-changepassword" role="menuitem" target="_blank" rel="noopener noreferrer" title="Sign up" href="#">
+                                            <div class="si-dropmenu-list-content si-portal-text">Sign up</div>
+                                            <div class="si-dropmenu-image si-portal-svg">
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- /ko -->
+
+                                    <!--<li class="si-portal-hover" role="presentation">
+        <a tabindex="-1" class="si-avatarmenu-myaccess" role="menuitem" href="#blade/HubsExtension/MyAccessBlade/resourceId/" target="_blank" rel="noopener noreferrer"   title="My permissions">
+            <div class="si-dropmenu-list-content si-portal-text" >My permissions</div>
+            <div class="si-dropmenu-image si-portal-svg" >
+                <svg height="100%" width="100%" aria-hidden="true" role="presentation" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#FxSymbol0-004"></use></svg>
+            </div>
+        </a>
+    </li>
+    <li class="si-portal-hover"  role="presentation">
+        <a tabindex="-1" class="si-avatarmenu-feedback" role="menuitem" href="https://go.microsoft.com/fwLink/?LinkID=522329&amp;amp;clcid=0x9" target="_blank" rel="noopener noreferrer"  title="Submit an idea">
+            <div class="si-dropmenu-list-content si-portal-text"  >Submit an idea</div>
+            <div class="si-dropmenu-image si-portal-svg"  >
+                <svg height="100%" width="100%" aria-hidden="true" role="presentation" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#FxSymbol0-005"></use></svg>
+            </div>
+        </a>
+    </li>
+    <li class="si-portal-hover"   role="presentation">
+        <a tabindex="-1" class="si-avatarmenu-billing" role="menuitem" href="" rel="noopener noreferrer">
+            <div class="si-dropmenu-list-content si-portal-text"  >View my bill</div>
+            <div class="si-dropmenu-image si-portal-svg" ></div>
+        </a>
+    </li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

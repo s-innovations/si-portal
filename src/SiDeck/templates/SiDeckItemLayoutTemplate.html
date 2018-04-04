@@ -1,0 +1,9 @@
+﻿<div class="si-deck-item si-stacklayout-child" data-bind="css:{'si-deck-item-maximized' : isMaximized}">
+    <!-- koLayout: header -->
+
+    <div class="si-deck-item-content-container" data-bind="css:{'stacked': isVerticalStacked}">
+        <!-- ko foreach: {data:contentLayouts,afterRender:added.bind($SiDeckItemLayout)} -->
+            <!-- koLayout: $data -->
+        <!-- /ko -->
+    </div>
+</div>
