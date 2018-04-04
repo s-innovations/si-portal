@@ -6,7 +6,7 @@
     </div>
     <div class="si-topbar-content si-hide-in-organize">
         <div class="si-topbar-internal si-bg-warning">Preview</div>
-        <a href="#" id="bannerlabel" class="si-topbar-home si-trim-text-primary si-trim-hover" title="Go to dashboard">EarthML Pimetr</a>
+        <a href="#" id="bannerlabel" class="si-topbar-home si-trim-text-primary si-trim-hover" data-bind="text:title" title="Go to dashboard"></a>
         <div class="si-topbar-placeholder"></div>
 
         <div class="si-topbar-search si-search" data-bind="stopBindings: true" role="presentation" style="display:none">
@@ -62,17 +62,11 @@
 
         <div class="si-topbar-avatarmenu si-avatarmenu" data-bind="stopBindings: true, with:avatarMenu">
             <div class="si-dropmenu" role="presentation">
-                <button class="si-dropmenu-button si-menu-account si-popup-button" data-bind="click:toggleAvatarMenu" aria-haspopup="true" aria-expanded="false" aria-controls="5fa5172a-32a6-4e49-907a-a186dcd41003" aria-label="Account menu Currently signed in as AscendXYZ, under {1} tenant" title="Name: Poul Kjeldager Sørensen
-Email: pks@ascend.xyz
-Directory: AscendXYZ (0840c760-6f7b-4556-b337-8c090e2d458d)
-Domain: ascend.xyz">
-                    <div class="si-avatarmenu-header si-trim-hover" data-bind="attr: { title: tooltip }" title="Name: Poul Kjeldager Sørensen
-Email: pks@ascend.xyz
-Directory: AscendXYZ (0840c760-6f7b-4556-b337-8c090e2d458d)
-Domain: ascend.xyz">
+                <button class="si-dropmenu-button si-menu-account si-popup-button" data-bind="click:toggleAvatarMenu" aria-haspopup="true" aria-expanded="false" aria-controls="5fa5172a-32a6-4e49-907a-a186dcd41003" aria-label="Account menu Currently signed in as AscendXYZ, under {1} tenant" title="">
+                    <div class="si-avatarmenu-header si-trim-hover" data-bind="attr: { title: tooltip }" title="">
                         <div class="si-avatarmenu-tenant-container">
-                            <div class="si-avatarmenu-username" data-bind="text: displayName">pks@ascend.xyz</div>
-                            <div class="si-avatarmenu-tenant" data-bind="text: currentTenantDisplayName">AscendXYZ</div>
+                            <div class="si-avatarmenu-username" data-bind="text: displayName"></div>
+                            <div class="si-avatarmenu-tenant" data-bind="text: currentTenantDisplayName"></div>
                         </div>
                         <img class="si-avatarmenu-tenant-image"  alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAM1BMVEVndYWzuL2Nl6Gbo6yqsLZxfYx/ipd1gpCgp69seYmSm6WlrLN6hpOvtLqEjpqXn6iIkp4fvOWIAAAAiklEQVR4XtXS2woDMQgE0BnNbe/7/19bqKxQMrTPPa8adIL4D7uT3E5oJ4MvECofK4SLqWJ2MBkmCxNdjk4DMya528akojc+Cr4m2yGt8VZVu10V9TZrwD7ss6UVkscdCd9Dtj5vVVYzZzi6yKS+bqGUZ0Cp5x1IDcEoGYJTcoRBaSAUSgWBGn+XX0A2A4V4OvWYAAAAAElFTkSuQmCC">
                     </div>

@@ -1,4 +1,7 @@
 ﻿
+import * as SiDeck from "./SiDeck/index";
+import * as SiDashboard from "./SiDashboard/index";
+
 import * as ko from "knockout";
 import { KoLayout } from "si-kolayout";
 import { observable, subscribe } from "si-decorators";
@@ -8,7 +11,7 @@ import { SiDashboardLayout } from "./SiDashboard/SiDashboardLayout";
 
 import * as PortalLayoutTemplate from "template!./templates/PortalLayoutTemplate.html";
 
-import { SiExplorerLayout, SiExplorerLayoutIoCEnabled, SiExplorerLayoutOptions } from "./SiExplorer/SiExplorerLayout";
+import { SiExplorerLayout, SiExplorerLayoutOptions } from "./SiExplorer/SiExplorerLayout";
 import { SiDeckLayout } from "./SiDeck/SiDeckLayout";
 
 import { ServiceCollection, ServiceDescription, ServiceProvider, WithIOCInjector, ioc } from "si-dependency-injection";
@@ -24,8 +27,11 @@ export interface PortalAppContext extends AppInsightsContext{
     serviceCollection:ServiceCollection
 }
 
+
 export interface PortalLayoutOptions {
     context: PortalAppContext;
+    topbar?:{title:string};
+    explorer?:{collapsed:boolean, allResourcesText:string}
 }
 
 
@@ -42,9 +48,9 @@ export abstract class PortalLayout extends KoLayout {
 
     @observable inEditMode = false;
 
-    @observable topbar: SiTopBarLayout = new SiTopBarLayout({
+    @observable topbar: SiTopBarLayout = new SiTopBarLayout(Object.assign(this.layoutOptions.topbar||{}, {
         inEditMode: ko.computed({ read: () =>  this.inEditMode, write: (v) => this.inEditMode = v, deferEvaluation: true })
-    })
+    }));
 
     @observable explorer: SiExplorerLayout;
 
@@ -57,15 +63,15 @@ export abstract class PortalLayout extends KoLayout {
         tiles: [ ]
     });
 
-    constructor(private layoutOptions: PortalLayoutOptions) {
-        super({ name: PortalLayoutTemplate });
+    constructor(protected layoutOptions: PortalLayoutOptions) {
+        super({ name: PortalLayoutTemplate, afterRender:(n)=>this.afterRender(n) });
 
         layoutOptions.context.serviceCollection.addSingleton(PortalLayout.TYPE, this);
           
 
 
 
-        this.explorer = new SiExplorerLayoutIoCEnabled({ collapsed: true } as SiExplorerLayoutOptions);
+        this.explorer = new SiExplorerLayout(Object.assign({ collapsed: true },layoutOptions.explorer||{}) as SiExplorerLayoutOptions);
 
 
                
@@ -73,6 +79,10 @@ export abstract class PortalLayout extends KoLayout {
 
     }
 
+    afterRender(nodes:Node[]){
+
+
+    }
     async init() {
 
         document.body.classList.add("loading-bg");
@@ -85,6 +95,6 @@ export abstract class PortalLayout extends KoLayout {
 
 
 
-
+export { SiDashboard, SiDeck};
 
 export default PortalLayout;

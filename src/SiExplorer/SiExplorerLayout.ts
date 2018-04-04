@@ -4,24 +4,31 @@
 import { AzurePortalSideBarLayout } from "./AzurePortalSideBarLayout";
 import { PortalLayout } from "../index";
 import { WithIOCInjector } from "si-dependency-injection";
-import { observable } from "si-decorators";
+import { observable, defaults } from "si-decorators";
 import { SiDeckItemLayout } from "../SiDeck/SiDeckItemLayout";
  
 import { SiDeckItemContentLayout } from "../SiDeck/SiDeckItemContentLayout";
 
 
 import * as module from "module";
+import { ioc } from "si-dependency-injection";
  
 
 export interface SiExplorerLayoutOptions {
     collapsed: boolean;
+    portalLayout?:PortalLayout;
 }
 
+const SiExplorerLayoutDefaults={
+    portalLayout : ()=>ioc("PortalLayout")
+};
+
+defaults(SiExplorerLayoutDefaults,true)
 export class SiExplorerLayout extends AzurePortalSideBarLayout {
 
     @observable portalLayout: PortalLayout;
 
-    constructor(options: SiExplorerLayoutOptions, portalLayout: PortalLayout) {
+    constructor(options: SiExplorerLayoutOptions) {
         super(options || {
             collapsed: false,
             favorites: {
@@ -35,7 +42,7 @@ export class SiExplorerLayout extends AzurePortalSideBarLayout {
             }
         })
        
-        this.portalLayout = portalLayout;
+       
         
     }
 
@@ -53,5 +60,5 @@ export class SiExplorerLayout extends AzurePortalSideBarLayout {
     }
 }
 
-export const SiExplorerLayoutIoCEnabled = WithIOCInjector(SiExplorerLayout, `ioc!PortalLayout`);
+//export const SiExplorerLayoutIoCEnabled = WithIOCInjector(SiExplorerLayout, `ioc!PortalLayout`);
 

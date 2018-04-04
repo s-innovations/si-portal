@@ -16,12 +16,14 @@ export interface AzurePortalSideBarViewModelOptions {
      * The sidebar favorites viewmodel.
      */
     favorites: SideBarFavoritesViewModel;
+    allResourcesText?:string;
 
 }
 import { defaults, Factory } from "si-decorators";
 const azurePortalSideBarViewModelOptionsDefaults: Factory<AzurePortalSideBarViewModelOptions> = {
     collapsed: ()=>false,
-    favorites: ()=>undefined
+    favorites: ()=>undefined,
+    allResourcesText:()=>"All resources"
 }
 
 
@@ -31,6 +33,8 @@ export class AzurePortalSideBarViewModel {
     @observable collapsed: boolean;
 
     favorites: SideBarFavoritesViewModel
+
+    @observable allResourcesText ;
 
     constructor(options: AzurePortalSideBarViewModelOptions) {
         

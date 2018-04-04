@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.5",
     "name": "si-portal",
     "author": "Poul K. Sorensen <pks@s-innovations.net> (http://twitter.com/pksorensen)",
     "homepage": "https://www.s-innovations.net",
@@ -7,9 +7,10 @@
         "url": "https://github.com/s-innovations/si-appbuilder/issues",
         "email": "bugs@s-innovations.com"
     },
-    "dependencies": {
+    "dependencies": {},
+    "devDependencies": {
         "@types/knockout": "3.4.53",
-        "@types/requirejs": "2.1.31",  
+        "@types/requirejs": "2.1.31",
         "si-decorators": "1.0.0",
         "si-kolayout": "1.0.0",
         "si-kolayout-jsx": "1.0.0",
@@ -19,10 +20,7 @@
         "si-appbuilder-application-insights-middleware": "0.0.3",
         "si-appbuilder-oidcmiddleware": "0.0.9",
         "si-appbuilder": "0.0.3",
-        "si-logging": "1.0.1"
-    },
-    "devDependencies": {
-     
+        "si-logging": "1.0.1",
         "typescript": "2.8.3",
         "grunt": "1.0.2",
         "grunt-contrib-copy": "1.0.0"
@@ -30,5 +28,10 @@
     "files": [
         "artifacts"
     ],
+    "scripts": {
+        "tsc": "node_modules/.bin/tsc",
+        "build": "npm run tsc && grunt copy",
+        "prepublish": "npm run tsc && grunt copy"
+    },
     "typings": "artifacts/typings/index.d.ts"
 }

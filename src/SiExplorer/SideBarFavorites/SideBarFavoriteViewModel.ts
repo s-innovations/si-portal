@@ -1,6 +1,6 @@
 ﻿
 
-import { defaults, Factory } from "si-decorators";
+import { defaults, Factory, observable } from "si-decorators";
 
 export interface SideBarFavoriteViewModelOptions {
     opensExternal?: boolean | KnockoutObservable<boolean>;

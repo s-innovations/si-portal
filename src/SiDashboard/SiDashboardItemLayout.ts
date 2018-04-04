@@ -24,7 +24,7 @@ import { defaults, Factory } from "si-decorators";
 import { ioc } from "si-dependency-injection";
 
 import "css!./content/dashboard.less";
-import "../../Utils/Draggabilly/DraggabillyBindingHandler";
+import "../Utils/Draggabilly/DraggabillyBindingHandler";
 
 
 export interface TileModel{
