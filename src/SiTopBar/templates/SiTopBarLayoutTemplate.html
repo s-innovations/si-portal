@@ -36,7 +36,7 @@
             </div>
         </div>
 
-
+        <!-- ko if:showNotificationsInTopbar -->
         <div class="si-topbar-notifications" data-bind="css:{'si-portal-background':isNotificationsOpen,'si-trim-hover':!isNotificationsOpen}">
             <a href="#" class="si-trim-svg si-topbar-button" data-bind="css:{'si-portal-svg' : isNotificationsOpen}, click:toggleNotifications" role="button" title="Notifications" aria-label="Notifications">
                 <svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 88 68" xml:space="preserve">
@@ -57,7 +57,7 @@
                 <div></div>
             </div>
         </div>
-
+        <!-- /ko -->
 
 
         <div class="si-topbar-avatarmenu si-avatarmenu" data-bind="stopBindings: true, with:avatarMenu">
@@ -66,7 +66,7 @@
                     <div class="si-avatarmenu-header si-trim-hover" data-bind="attr: { title: tooltip }" title="">
                         <div class="si-avatarmenu-tenant-container">
                             <div class="si-avatarmenu-username" data-bind="text: displayName"></div>
-                            <div class="si-avatarmenu-tenant" data-bind="text: currentTenantDisplayName"></div>
+                           <!-- <div class="si-avatarmenu-tenant" data-bind="text: currentTenantDisplayName"></div>-->
                         </div>
                         <img class="si-avatarmenu-tenant-image"  alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAM1BMVEVndYWzuL2Nl6Gbo6yqsLZxfYx/ipd1gpCgp69seYmSm6WlrLN6hpOvtLqEjpqXn6iIkp4fvOWIAAAAiklEQVR4XtXS2woDMQgE0BnNbe/7/19bqKxQMrTPPa8adIL4D7uT3E5oJ4MvECofK4SLqWJ2MBkmCxNdjk4DMya528akojc+Cr4m2yGt8VZVu10V9TZrwD7ss6UVkscdCd9Dtj5vVVYzZzi6yKS+bqGUZ0Cp5x1IDcEoGYJTcoRBaSAUSgWBGn+XX0A2A4V4OvWYAAAAAElFTkSuQmCC">
                     </div>

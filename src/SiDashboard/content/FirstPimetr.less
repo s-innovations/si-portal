@@ -33,7 +33,7 @@
         font-weight: 400;
         line-height: 24px;
         border: 0;
-        background-color: #fd6e7c;
+        background-color: @md-focused-color;
         -webkit-transition-property: all;
         transition-property: all;
         -webkit-transition-duration: 0.15s;
@@ -44,6 +44,6 @@
     }
 
     .cta:hover {
-        background-color: lighten(#fd6e7c,5%)
+        background-color: lighten(@md-focused-color,5%)
     }
 }

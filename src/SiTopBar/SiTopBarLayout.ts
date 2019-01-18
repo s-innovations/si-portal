@@ -61,15 +61,17 @@ export class SiAvatarMenu {
 
 
 export interface SiTopBarLayoutOptions {
-    inEditMode: boolean | KnockoutObservable<boolean>,
-    title?:string;
+    inEditMode?: boolean | KnockoutObservable<boolean>,
+    title?: string;
+    showNotificationsInTopbar?: boolean;
 }
 
 
 
 const SiTopBarLayoutDefaults = {
     inEditMode: ()=>false,
-    title:()=>"SiPortal"
+    title: () => "SiPortal",
+    showNotificationsInTopbar:()=>true,
 } as Factory<Partial<SiTopBarLayoutOptions>>
 
 @defaults(SiTopBarLayoutDefaults, true)
@@ -84,7 +86,8 @@ export class SiTopBarLayout extends KoLayout {
     @observable isNotificationsOpen = false;
 
     @observable title;
-   
+
+    @observable showNotificationsInTopbar = true;
  
 
     avatarMenu = new SiAvatarMenu(); 

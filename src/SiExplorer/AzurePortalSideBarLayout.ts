@@ -13,7 +13,9 @@ import "css!./content/si-sidebar.less";
 export interface AzurePortalSideBarLayoutOptions {
     collapsed?: boolean | KnockoutObservable<boolean>;
     favorites?: SideBarFavoritesViewModel | SideBarFavoritesViewModelOptions;
-    allResourcesText?:string;
+    allResourcesText?: string;
+    showAllResourcesButton?: boolean;
+    showNewResourcesButton?: boolean;
 }
 
 export class AzurePortalSideBarLayout  extends KoLayout {
@@ -28,13 +30,10 @@ export class AzurePortalSideBarLayout  extends KoLayout {
                 name: sidebarTemplate,
                 as: "$AzurePortalSideBarLayout"
             });
-        var sideBarFavoritesViewModel = new SideBarFavoritesViewModel(layoutOptions.favorites);
-        this.vm = new AzurePortalSideBarViewModel({
-            collapsed: layoutOptions.collapsed,
-            favorites: sideBarFavoritesViewModel,
-            allResourcesText:layoutOptions.allResourcesText
-        });
-        this.favoritesLayout = new AzurePortalSideBarFavoritesLayout({ sideBarFavoritesViewModel: sideBarFavoritesViewModel });
+        
+        var o = Object.assign({}, layoutOptions, { favorites: new SideBarFavoritesViewModel(layoutOptions.favorites)})
+        this.vm = new AzurePortalSideBarViewModel(o);
+        this.favoritesLayout = new AzurePortalSideBarFavoritesLayout({ sideBarFavoritesViewModel: o.favorites });
     }
 
 

@@ -6,7 +6,7 @@ import * as ko from "knockout";
 import { KoLayout } from "si-kolayout";
 import { observable, subscribe } from "si-decorators";
 
-import { SiTopBarLayout } from "./SiTopBar/SiTopBarLayout";
+import { SiTopBarLayout, SiTopBarLayoutOptions } from "./SiTopBar/SiTopBarLayout";
 import { SiDashboardLayout } from "./SiDashboard/SiDashboardLayout";
 
 import * as PortalLayoutTemplate from "template!./templates/PortalLayoutTemplate.html";
@@ -30,8 +30,8 @@ export interface PortalAppContext extends AppInsightsContext{
 
 export interface PortalLayoutOptions {
     context: PortalAppContext;
-    topbar?:{title:string};
-    explorer?:{collapsed:boolean, allResourcesText:string}
+    topbar?: SiTopBarLayoutOptions;// { title: string, showNotificationsInTopbar?: boolean };
+    explorer?: { collapsed: boolean, allResourcesText?: string, showAllResourcesButton?: boolean, showNewResourcesButton?: boolean }
 }
 
 
