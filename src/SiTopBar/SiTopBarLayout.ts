@@ -95,7 +95,7 @@ export class SiTopBarLayout extends KoLayout {
     constructor(options: SiTopBarLayoutOptions) {
         super({
                 name: PortalLayoutTemplate,
-                as: "$SiTopBarLayout"                   
+                as: "$SiTopBarLayout"                  
             });
 
        

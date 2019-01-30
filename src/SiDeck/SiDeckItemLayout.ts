@@ -39,9 +39,12 @@ declare global {
     interface EventTarget {
         files: FileList;
     }
-    interface WebKitFileEntry extends WebKitEntry {
-        file(successCallback: (file: File) => void, errorCallback?: WebKitErrorCallback): void;
+    interface File {
+        webkitRelativePath: string;
     }
+    //interface WebKitFileEntry extends WebKitEntry {
+    //    file(successCallback: (file: File) => void, errorCallback?: WebKitErrorCallback): void;
+    //}
 }
 
 function makeDroppable(element: HTMLElement, callback: (file: File) => PromiseLike<void>) {
@@ -69,7 +72,7 @@ function makeDroppable(element: HTMLElement, callback: (file: File) => PromiseLi
                 logger.logInformation("Adding DragDrop Event {itemNumber} {@item} ", i, { kind: item.kind, type: item.type, webkit: "webkitGetAsEntry" in item });
                 if (item.kind === "file") {
                     if ("webkitGetAsEntry" in item) {
-                        let entry = item.webkitGetAsEntry() as WebKitFileEntry;
+                        let entry = item.webkitGetAsEntry();
                         logger.logInformation("{@entry} {itemNumber} read", {
                             fullPath: entry.fullPath,
                             isDirectory: entry.isDirectory,
@@ -93,9 +96,10 @@ function makeDroppable(element: HTMLElement, callback: (file: File) => PromiseLi
 
                 let file = await promise;
 
+                //@ts-ignore
                 logger.logInformation("{@file} read", {
                     name: file.name,
-                    lastModifiedDate: file.lastModifiedDate,
+                    lastModifiedDate: file.lastModified,
                     size: file.size,
                     type: file.type,
                     webkitRelativePath: file.webkitRelativePath,

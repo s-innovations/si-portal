@@ -4,7 +4,7 @@ import * as ko from "knockout";
 import { KoLayout } from "si-kolayout";
 import { observable } from "si-decorators";
 
-import { SideBarFavoritesViewModel }from "./sideBarFavorites/SideBarFavoritesViewModel";
+import { SideBarFavoritesViewModel }from "./SideBarFavorites/SideBarFavoritesViewModel";
 
 
 import * as AzurePortalSideBarFavoritesTemplate from "template!./templates/AzurePortalSideBarFavoritesTemplate.html";

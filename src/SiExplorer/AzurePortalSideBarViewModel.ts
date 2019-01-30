@@ -1,6 +1,6 @@
 ﻿import * as ko from "knockout";
 
-import { SideBarFavoritesViewModel } from "./sideBarFavorites/SideBarFavoritesViewModel";
+import { SideBarFavoritesViewModel } from "./SideBarFavorites/SideBarFavoritesViewModel";
  
 import { observable, subscribe } from "si-decorators";
 
