@@ -310,3 +310,79 @@ button.si-sidebar-collapse-button {
 [data-bind*=siClick], [data-bind*=siclick], [role=link], [role=button] {
     cursor: pointer;
 }
+
+
+@circle-radius: 8px;
+
+
+.si-sidebar-button-flex{
+    position:relative;
+}
+
+.pulse {
+    margin-top: 2px;
+    position: relative;    
+    margin-left: 2px;
+    right: 0;   
+    width: (@circle-radius * 2);
+    height: (@circle-radius * 2);
+    line-height: (@circle-radius * 2);
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    text-align: center;
+    color: @md-focused-color;
+}
+
+.pulse span,
+.pulse:before,
+.pulse:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 0 solid @md-focused-color;
+    border-radius:50%;
+    animation: da-pulse 1.5s ease-in-out 0s infinite;
+}
+
+.pulse span {
+    border-color: @md-focused-color;
+    border-width: 2px;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+}
+
+.pulse:before {
+    border-color: darken(@md-focused-color, 25%);
+    border-width: 2px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.pulse:after {
+    border-color: darken(@md-focused-color, 35%);
+    border-width: 1px;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+}
+
+@keyframes da-pulse {
+    0%, 100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+
+    48%, 52% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+}
