@@ -3,7 +3,7 @@ import * as SiDeck from "./SiDeck/index";
 import * as SiDashboard from "./SiDashboard/index";
 
 import * as ko from "knockout";
-import { KoLayout } from "si-kolayout";
+import { KoLayout, IKoLayout } from "si-kolayout";
 import { observable, subscribe } from "si-decorators";
 
 import { SiTopBarLayout, SiTopBarLayoutOptions } from "./SiTopBar/SiTopBarLayout";
@@ -22,6 +22,7 @@ import {AppInsightsContext} from "si-appbuilder-application-insights-middleware"
 
  
 import { SiContextPaneLayout } from "./SiContextPane/SiContextPaneLayout";
+import { SiDashboardItemLayout, TileModel } from "./SiDashboard/index";
 
 export interface PortalAppContext extends AppInsightsContext{
     serviceCollection:ServiceCollection
@@ -34,10 +35,15 @@ export interface PortalLayoutOptions {
     explorer?: { collapsed: boolean, allResourcesText?: string, showAllResourcesButton?: boolean, showNewResourcesButton?: boolean }
 }
 
+export interface PortalDashboardContentProvider {
+    loadContent(options: Partial<TileModel>, tile: SiDashboardItemLayout): PromiseLike< IKoLayout>;
+}
+
 
 declare module "si-dependency-injection" {
     interface IoC {
         (module: "PortalLayout"): PortalLayout;
+        (module: "PortalDashboardContentProvider"): PortalDashboardContentProvider;
     }
 }    
 
@@ -57,6 +63,7 @@ export abstract class PortalLayout extends KoLayout {
     @observable deck = new SiDeckLayout({});
 
     @observable rightContextpane = null;
+    @observable leftContextPane = null; 
 
     @observable dashboard = new SiDashboardLayout({
         inEditMode: ko.computed({ read: () => { console.log("read edit"); return this.inEditMode; }, write: (v) => { console.log("write edit"); this.inEditMode = v; }, deferEvaluation: true }),

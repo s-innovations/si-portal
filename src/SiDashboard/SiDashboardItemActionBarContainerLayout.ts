@@ -48,10 +48,11 @@ export class SiDashboardItemActionBarContainerLayout extends WithKoClasses( KoLa
         mouseEvent.preventDefault();
         mouseEvent.stopPropagation();
 
+        this.tileLayout.close(mouseEvent);
 
     }
     openTile() {
-        this.tileLayout.redirect();
+        this.tileLayout.configure();
     }
 
     command= {icon:()=>""}

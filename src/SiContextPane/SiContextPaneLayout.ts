@@ -43,17 +43,24 @@ export interface SiContextPaneLayoutOptions {
 }
 
 
+export enum SiContextPaneLayoutPosition {
+    LEFT = 0,
+    RIGHT = 1
+}
 
 const SiContextPaneLayoutDefaults = {
     hasNotifications: () => false
 } as Factory<Partial<SiContextPaneLayoutOptions>>
 
+
+
 @defaults(SiContextPaneLayoutDefaults, true)
 export class SiContextPaneLayout extends KoLayout {
 
-    @observable content: KoLayout= new SiNotificationContextPanelContentLayout();
-  
-   
+    @observable content: KoLayout = null;
+
+    @observable position = SiContextPaneLayoutPosition.RIGHT
+    @observable collapsable = false;
 
     constructor(protected attributes: SiContextPaneLayoutOptions) {
         super({
@@ -64,8 +71,22 @@ export class SiContextPaneLayout extends KoLayout {
 
     }
 
+    collapse() {
+        ioc("PortalLayout").explorer.vm.collapsed = !ioc("PortalLayout").explorer.vm.collapsed;
+    }
+
     close() {
         this.attributes.onClose();
+    }
+}
+export class SiNotificationContextPaneLayout extends SiContextPaneLayout {
+
+    constructor(attributes: SiContextPaneLayoutOptions) {
+        super(attributes)
+
+        this.position = SiContextPaneLayoutPosition.RIGHT;
+        this.content = new SiNotificationContextPanelContentLayout();
+
     }
 }
 

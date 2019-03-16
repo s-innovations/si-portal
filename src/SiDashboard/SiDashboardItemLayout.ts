@@ -104,6 +104,7 @@ export class SiDashboardItemLayout extends WithKoClasses( KoLayout)  {
         } as TileModel;
     }
     remove() {
+       
         this.flowLayout.removeTile(this);
     }
 
@@ -127,8 +128,16 @@ export class SiDashboardItemLayout extends WithKoClasses( KoLayout)  {
 
         location.hash = "/deck" + path;
     }
+    configure() {
+        let path = this.opt.content;
+        location.hash = `/configurer${path}/${this.opt.id}`;
+    }
+    close(mouseEvent: Event) {
 
-    @observable private coords: Coords;
+        this.remove();
+    }
+
+    @observable coords: Coords;
 
     setCoords(v: Coords) { this.coords = v; }       
     selectedFromHover = ko.observable(false).extend({ rateLimit: 500 });
@@ -167,7 +176,12 @@ export class SiDashboardItemLayout extends WithKoClasses( KoLayout)  {
     }
 
     async rendered() {
+        let contentProvider = ioc("PortalDashboardContentProvider");
+        if (contentProvider) {
+            this.content = await contentProvider.loadContent(this.opt,this);
 
+        }
+      
         
     }
 
@@ -193,7 +207,7 @@ export class SiDashboardItemLayout extends WithKoClasses( KoLayout)  {
                     this.left = Math.round(pos.x / 90 + 0.0) * 90;
                     this.top = -Infinity;                      
                     this.top = Math.round(pos.y / 90 + 0.0) * 90;
-
+                    
                     this.selected = false;
      
                 },

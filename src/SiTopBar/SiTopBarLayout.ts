@@ -7,7 +7,7 @@ import { KoLayout, KnockoutTemplateBindingHandlerOptions } from "si-kolayout";
 import { defaults, Factory, observable} from "si-decorators";
 import * as PortalLayoutTemplate from "template!./templates/SiTopBarLayoutTemplate.html";
 import "css!./content/TopBarLayout.less";
-import { SiContextPaneLayout } from "../SiContextPane/SiContextPaneLayout";
+import { SiContextPaneLayout, SiNotificationContextPaneLayout } from "../SiContextPane/SiContextPaneLayout";
 
 import { ioc } from "si-dependency-injection";
 declare module "si-dependency-injection" {
@@ -55,6 +55,7 @@ export class SiAvatarMenu {
 
     signUp() {
         this.isAvatarOpen = false;
+        location.hash = "#/register";
       //  ioc("PortalLayout").rightContextpane = new SignupContextPaneLayout({ onClose: () => ioc("PortalLayout").rightContextpane = null });
     }
 }
@@ -108,7 +109,7 @@ export class SiTopBarLayout extends KoLayout {
     toggleNotifications() {
         this.isNotificationsOpen = !this.isNotificationsOpen;
         
-        ioc("PortalLayout").rightContextpane = this.isNotificationsOpen ? new SiContextPaneLayout({
+        ioc("PortalLayout").rightContextpane = this.isNotificationsOpen ? new SiNotificationContextPaneLayout({
             onClose: () => this.toggleNotifications(),
             hasNotifications: true
         }) : null;

@@ -26,7 +26,8 @@ const SiDashboardDefaults = { inEditMode: () => false, minContainerHeight: () =>
 export class SiDashboardLayout extends KoLayout {
    
   //  private itemTemplateName = "siTileTemplate";
-    protected items: KnockoutObservableArray<SiDashboardItemLayout> = ko.observableArray([]);
+    items: KnockoutObservableArray<SiDashboardItemLayout> = ko.observableArray([]);
+    removedItems = ko.observableArray<SiDashboardItemLayout>([]);
     selectedItems = ko.observableArray<SiDashboardItemLayout>([]);
 
     @observable inEditMode: boolean;
@@ -98,14 +99,23 @@ export class SiDashboardLayout extends KoLayout {
             name: SiDashboardLayoutTemplate
         });  
     }
-
-    addTile(...tileModels: any[]) {
-        this.items.push(...tileModels.map(tileModel => new SiDashboardItemLayout(Object.assign({}, {
+    addTile(tile: Partial<TileModel>): SiDashboardItemLayout
+    addTile(...tiles: Partial<TileModel>[]): SiDashboardItemLayout[]
+    addTile(...tileModels: Partial<TileModel>[]) {
+        let models =tileModels.map(tileModel => new SiDashboardItemLayout(Object.assign({}, {
             flowLayout: this
-        }, tileModel))));
+        }, tileModel)));
+
+        this.items.push(...models);
+        if (models.length === 1)
+            return models[0];
+        return models;
     }
     removeTile(item: SiDashboardItemLayout) {
         this.items.remove(item);
+        this.removedItems.push(item);
+        this.dropPlacementStyle = null;
+        this.inEditMode = true;
     }
 
     setContainerHeight(height: number) {
@@ -125,6 +135,22 @@ export class SiDashboardLayout extends KoLayout {
     faux_grid: any;
     gridmap: any;
 
+    generate_faux_grid_for_items() {
+        let grid = [];
+       
+        for (let item of this.items()) {
+          
+            let cc = item.left / this.min_widget_width + Math.round(item.width / this.min_widget_width);
+            let rr = item.top / this.min_widget_height + Math.round(item.height / this.min_widget_height);
+            for (let c = item.left / this.min_widget_width; c < cc; c++) {
+                for (let r = item.top / this.min_widget_height; r < rr; r++) {
+                   
+                    this.add_faux_cell(r+1, c+1, grid);
+                }
+            }
+        }
+        return grid;
+    }
     generate_faux_grid(rows: number, cols: number) {
         this.faux_grid = [];
         this.gridmap = [];
@@ -133,16 +159,16 @@ export class SiDashboardLayout extends KoLayout {
         for (col = cols; col > 0; col--) {
             this.gridmap[col] = [];
             for (row = rows; row > 0; row--) {
-                this.add_faux_cell(row, col);
+                this.add_faux_cell(row, col, this.faux_grid, this.gridmap);
             }
         }
-        return this;
+        return this.faux_grid;
     };
     baseX = 0;
     baseY = 0;
     min_widget_width = 90;
     min_widget_height = 90;
-    add_faux_cell(row: number, col: number) {
+    add_faux_cell(row: number, col: number,grid,gridmap=null) {
       
         let c = new Coords({
             data: {
@@ -156,13 +182,16 @@ export class SiDashboardLayout extends KoLayout {
                 original_row: row
             }
         });
+       
 
-        if (!Array.isArray(this.gridmap[col])) {
-            this.gridmap[col] = [];
+        if (gridmap) {
+            if (!Array.isArray(this.gridmap[col])) {
+                gridmap[col] = [];
+            }
+
+            gridmap[col][row] = false;
         }
-
-        this.gridmap[col][row] = false;
-        this.faux_grid.push(c);
+        grid.push(c);
 
         return this;
     };

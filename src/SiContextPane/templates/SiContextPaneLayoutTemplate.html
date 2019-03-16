@@ -1,15 +1,13 @@
-﻿<div class="si-portal-contextpane-right si-contextpane si-portal-bg-txt-br si-contextpane-visible" role="complementary">
-    <button type="button" class="si-contextpane-expand si-display-none">
+﻿<div class="si-contextpane si-portal-bg-txt-br si-contextpane-visible" data-bind="css:{'si-portal-contextpane-right' : position === 1, 'si-portal-contextpane-left' : position === 0 }" role="complementary">
+    <button type="button" class="si-contextpane-expand" title="Collapse" data-bind="click:collapse, css:{'si-display-none':!collapsable}">
         <div class="si-contextpane-button-inner si-portal-svg">
-            
+            <svg viewBox="0 0 8 8.4" class="siportalfx-svg-palette-inherit" role="presentation" focusable="false" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="FxSymbol0-002" width="100%" height="100%"><g><title></title><path d="M4 3.7l-4 4 .7.7L4 5l3.3 3.4.7-.7-4-4z"></path><path d="M4 0L0 4l.7.7L4 1.4l3.3 3.3L8 4 4 0z"></path></g></svg>
         </div>
     </button>
-    <button type="button" class="si-contextpane-close" title="Close" data-bind="click:close">
-        <div class="si-contextpane-button-inner si-portal-svg">
-            <svg viewBox="0 0 16 16" class="siportalfx-svg-placeholder" role="img" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false">
-                <polygon points="15,3.475 12.539,1.001 8.006,5.534 3.474,1.001 1,3.475 5.52,8.007 1,12.527 3.474,15.001 7.994,10.481 12.526,15.014 15,12.54 10.467,8.007 "></polygon>
-            </svg>
-        </div>
+    <button type="button" class="si-contextpane-close" title="Close"  data-bind="click:close,css:{'si-display-none':collapsable}">
+        
+            <svg viewBox="0 0 15.8 15.8" class="siportalfx-svg-palette-primary" role="presentation" focusable="false" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="FxSymbol0-003" width="100%" height="100%"><g><title></title><path d="M8.7 7.9l7.1 7.1-.8.8-7.1-7.1-7.1 7.1L0 15l7.1-7.1L0 .8.8 0l7.1 7.1L15 0l.8.8z"></path></g></svg>
+    
     </button>
    <!--koLayout : content-->
     <div class="si-progress-dots">

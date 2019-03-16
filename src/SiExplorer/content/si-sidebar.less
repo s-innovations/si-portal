@@ -386,3 +386,17 @@ button.si-sidebar-collapse-button {
         opacity: 1;
     }
 }
+
+
+.si-sidebar-is-collapsed + .si-portal-contextpane-left {
+    width: 48px;
+    max-width: 48px;
+}
+
+.si-sidebar-is-collapsed + .si-portal-contextpane-left .si-contextpane-expand, .si-sidebar-is-collapsed + .si-portal-contextpane-left .si-contextpane-expand .si-contextpane-button-inner {
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+}

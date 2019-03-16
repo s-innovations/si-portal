@@ -45,19 +45,30 @@ export class collesions {
     };
     private overlaps(a: CoordsModel, b: CoordsModel) {
 
+       
         var x = false;
         var y = false;
 
         if ((b.x1 >= a.x1 && b.x1 <= a.x2) ||
-            (b.x2 >= a.x1 && b.x2 <= a.x2) ||
+            (b.x2 > a.x1 && b.x2 <= a.x2) ||
             (a.x1 >= b.x1 && a.x2 <= b.x2)
         ) { x = true; }
 
         if ((b.y1 >= a.y1 && b.y1 <= a.y2) ||
-            (b.y2 >= a.y1 && b.y2 <= a.y2) ||
+            (b.y2 > a.y1 && b.y2 <= a.y2) ||
             (a.y1 >= b.y1 && a.y2 <= b.y2)
         ) { y = true; }
+        //if (x && y) {
+            
+        //    b.x1 >= a.x1 && b.x1 <= a.x2 && console.log(`b.x1 >= a.x1 && b.x1 <= a.x2      ${b.x1} >= ${a.x1} && ${b.x1} <= ${a.x2}      ${b.x1 >= a.x1 && b.x1 <= a.x2}`)
+        //    b.x2 >= a.x1 && b.x2 <= a.x2 && console.log(`b.x2 >= a.x1 && b.x2 <= a.x2      ${b.x2} >= ${a.x1} && ${b.x2} <= ${a.x2}      ${b.x2 >= a.x1 && b.x2 <= a.x2}`)
+        //    a.x1 >= b.x1 && a.x2 <= b.x2 && console.log(`a.x1 >= b.x1 && a.x2 <= b.x2      ${a.x1} >= ${b.x1} && ${a.x2} <= ${b.x2}      ${a.x1 >= b.x1 && a.x2 <= b.x2}`)
 
+        //    b.y1 >= a.y1 && b.y1 <= a.y2 && console.log(`b.y1 >= a.y1 && b.y1 <= a.y2      ${b.y1} >= ${a.y1} && ${b.y1} <= ${a.y2}      ${b.y1 >= a.y1 && b.y1 <= a.y2}`)
+        //    b.y2 >= a.y1 && b.y2 <= a.y2 && console.log(`b.y2 >= a.y1 && b.y2 <= a.y2      ${b.y2} >= ${a.y1} && ${b.y2} <= ${a.y2}      ${b.y2 >= a.y1 && b.y2 <= a.y2}`)
+        //    a.y1 >= b.y1 && a.y2 <= b.y2 && console.log(`a.y1 >= b.y1 && a.y2 <= b.y2      ${a.y1} >= ${b.y1} && ${a.y2} <= ${b.y2}      ${a.y1 >= b.y1 && a.y2 <= b.y2}`)
+        //    console.log('----------------------------')
+        //}
         return (x && y);
 
     }
@@ -120,16 +131,22 @@ export class collesions {
         var count = $colliders.length;
         var player_coords = self.player
             .update(player_data_coords || null).get();
+        
+     //   console.log(player_coords)
 
         while (count--) {
             var $collider = $colliders[count];
             var $collider_coords_ins = $collider;
             var collider_coords = $collider_coords_ins.get();
+           
+        
             var overlaps = self.overlaps(player_coords, collider_coords);
 
             if (!overlaps) {
                 continue;
             }
+         //   console.log(collider_coords);
+          //  console.log('---------')
 
             var region = self.detect_overlapping_region(
                 player_coords, collider_coords);

@@ -11,7 +11,7 @@ export function propergateToParent() {
             configurable: false,
             value: function (vm: any, event: MouseEvent) {
 
-                let ctx = ko.contextFor(event.target);
+                let ctx = ko.contextFor(event.target as Node);
                 let parent: Function = ctx["$parent"][key];
                 parent.apply(ctx["$parent"], arguments);
                 //let parent = getter.call(this);

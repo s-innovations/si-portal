@@ -7,6 +7,24 @@
     background-color: #fff;
 }
 
+.si-contextpane-expand .si-contextpane-button-inner {
+    text-align: right;
+}
+
+.si-contextpane-expand svg {
+    height: 8px;
+    width: 8px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin: 8px 2px;
+}
+
+
+.si-sidebar-is-collapsed + .si-portal-contextpane-left .si-contextpane-expand .si-contextpane-button-inner svg,
+.si-sidebar-is-collapsed + .si-portal-contextpane-left .si-contextpane-expand svg {
+    -webkit-transform: rotate(90deg) translateY(-24px);
+    transform: rotate(90deg) translateY(-24px);
+}
 
 .si-contextpane {
     display: none;
@@ -31,47 +49,46 @@
     max-width: ~"calc(100% - 225px)";
 }
 
- 
 
 
-.si-contextpane-expand {
-    left: 0;
-    padding: 8px 7px 9px 20px;
-    width: 100%;
-}
 
- 
 .si-contextpane-close, .si-contextpane-expand {
     cursor: pointer;
     border: 0;
     background-color: transparent;
     margin: 0;
     transition: background .2s ease-out;
-    height: 30px;
-    width: 30px;
     position: absolute;
     top: 0;
+}
+.si-contextpane-expand {
+    width: 100%;
+    z-index: 2;
 }
 
 .si-mode-light .si-portal-svg {
     fill: #252525;
 }
 
-.si-contextpane-expand svg {
+
+/*.si-contextpane-expand svg {
     height: 18px;
     width: 18px;
+}*/
+
+ 
+
+.si-contextpane-close svg {
+  
+    height: 12px;
+    width: 12px;
 }
-
-
-.si-contextpane-close svg, .si-contextpane-expand svg {
-    display: block;
-    height: 16px;
-    width: 16px;
-}
-
 .si-contextpane-close {
     right: 0;
+    height: 30px;
+    width: 30px;
 }
+
 
 .si-contextpane .si-contextpane-content {
     box-sizing: border-box;
@@ -99,9 +116,11 @@
 }
 
 .si-notificationspane-title {
-    font-family: az_ea_font,"Segoe UI",wf_segoe-ui_light,"Segoe UI Light","Segoe WP Light","Segoe WP",Tahoma,Arial,sans-serif;
-    font-weight: 200;
+    font-weight: 600;
     font-size: 18px;
+    line-height: 50px;
+    overflow: hidden;
+    margin: 0;
 }
 
 .si-notificationspane-dismisscontainer {
@@ -154,6 +173,10 @@
 .si-contextpane-close:hover {
     background: #ba141a;
     color: #fff;
+    fill: #fff;
+    .siportalfx-svg-palette-primary{
+        fill:#fff;
+    }
 }
 
 .si-mode-light .si-portal-background {

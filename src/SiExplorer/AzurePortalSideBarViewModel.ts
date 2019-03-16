@@ -35,6 +35,7 @@ const azurePortalSideBarViewModelOptionsDefaults: Factory<AzurePortalSideBarView
 export class AzurePortalSideBarViewModel {
 
     @observable collapsed: boolean;
+    @observable hidden: boolean = false;
 
     favorites: SideBarFavoritesViewModel
 
